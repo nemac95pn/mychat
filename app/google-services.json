@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "940618013200",
+    "firebase_url": "https://mychat-b67f8.firebaseio.com",
+    "project_id": "mychat-b67f8",
+    "storage_bucket": "mychat-b67f8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940618013200:android:eb9c31bbabcc86f5",
+        "android_client_info": {
+          "package_name": "com.example.nemanja.mychat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940618013200-ak7l052gnr4dvvdc8f1ctcfmrso6eipf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.nemanja.mychat",
+            "certificate_hash": "5f6fbb060ed083ec59d901b33e123a346d245eeb"
+          }
+        },
+        {
+          "client_id": "940618013200-5b4at2pd4jqn19mgv29f900l061u51ft.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOCTOilrO82n9BwiK77ug_tV796D-E7qk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940618013200-5b4at2pd4jqn19mgv29f900l061u51ft.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

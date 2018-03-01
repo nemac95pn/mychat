@@ -112,7 +112,7 @@ public class SettingsActivity extends AppCompatActivity
     {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode==Gallery_Pick && resultCode==RESULT_OK && data!=null);
+        if (requestCode==Gallery_Pick && resultCode==RESULT_OK && data!=null)
         {
             Uri ImageUri = data.getData();
 
@@ -128,7 +128,7 @@ public class SettingsActivity extends AppCompatActivity
                 Uri resultUri = result.getUri();
 
                 String user_id = mAuth.getCurrentUser().getUid();
-                StorageReference filePath = storageProfileImageStorageRef.child(user_id + ".jgp");
+                StorageReference filePath = storageProfileImageStorageRef.child(user_id + ".jpg");
                 filePath.putFile(resultUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task)

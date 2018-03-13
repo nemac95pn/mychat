@@ -19,7 +19,7 @@ public class WelcomeActivity extends AppCompatActivity {
             {
                 try
                 {
-                    sleep(6000);
+                    sleep(4000);
                 }
                 catch(Exception e)
                 {

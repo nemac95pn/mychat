@@ -36,7 +36,7 @@ public class StatusActivity extends AppCompatActivity {
         String user_id = mAuth.getCurrentUser().getUid();
         changeStatusRef = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
 
-        mToolbar = (Toolbar) findViewById(R.id.status_app_bar);
+        mToolbar =  findViewById(R.id.status_app_bar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Change Status");
         if(getSupportActionBar() != null) {
@@ -45,8 +45,8 @@ public class StatusActivity extends AppCompatActivity {
         //getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
 
 
-        SaveChangesButton = (Button) findViewById(R.id.save_status_changes_button);
-        StatusInput = (EditText) findViewById(R.id.status_input);
+        SaveChangesButton =  findViewById(R.id.save_status_changes_button);
+        StatusInput =  findViewById(R.id.status_input);
         loadingBar = new ProgressDialog(this);
 
         String old_status = getIntent().getExtras().get("user_status").toString();

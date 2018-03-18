@@ -73,11 +73,11 @@ public class SettingsActivity extends AppCompatActivity
 
         thumbImageRef = FirebaseStorage.getInstance().getReference().child("Thumb_Images");
 
-        settingsDisplayProfileImage = (CircleImageView) findViewById(R.id.settings_profile_image);
-        settingsDisplayname = (TextView) findViewById(R.id.settings_username);
-        settingsDisplayStatus = (TextView) findViewById(R.id.settings_user_status);
-        settingsChangeProfileImageButton = (Button) findViewById(R.id.settings_change_profile_image_button);
-        settingsChangeStatusButton = (Button) findViewById(R.id.settings_change_profile_status);
+        settingsDisplayProfileImage =  findViewById(R.id.settings_profile_image);
+        settingsDisplayname =  findViewById(R.id.settings_username);
+        settingsDisplayStatus =  findViewById(R.id.settings_user_status);
+        settingsChangeProfileImageButton =  findViewById(R.id.settings_change_profile_image_button);
+        settingsChangeStatusButton =  findViewById(R.id.settings_change_profile_status);
         loadingBar = new ProgressDialog(this);
 
 
@@ -249,5 +249,11 @@ public class SettingsActivity extends AppCompatActivity
                 Exception error = result.getError();
             }
         }
+    }
+
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        finish();
     }
 }

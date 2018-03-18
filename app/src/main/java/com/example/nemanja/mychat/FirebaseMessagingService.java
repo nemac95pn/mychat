@@ -1,7 +1,6 @@
 package com.example.nemanja.mychat;
 
 import android.app.NotificationManager;
-import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 
 import com.google.firebase.messaging.RemoteMessage;
@@ -15,11 +14,18 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
 
+
+        String notification_title = remoteMessage.getNotification().getTitle();
+        String notification_body = remoteMessage.getNotification().getBody();
+
+
+
         NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this, "notification")
-                        .setSmallIcon(R.drawable.ic_launcher_foreground)
-                        .setContentTitle("My Notification")
-                        .setContentText("Hello World!");
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.mipmap.mychat)
+                        .setContentTitle(notification_title)
+                        .setContentText(notification_body);
+
 
         int mNotificationId = (int) System.currentTimeMillis();
         NotificationManager mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);

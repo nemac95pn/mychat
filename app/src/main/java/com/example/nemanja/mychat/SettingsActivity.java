@@ -42,7 +42,7 @@ public class SettingsActivity extends AppCompatActivity
 {
     private CircleImageView settingsDisplayProfileImage;
     private TextView settingsDisplayname;
-    private TextView settingsDisplayStatus;
+    public static TextView settingsDisplayStatus;
     private Button settingsChangeProfileImageButton;
     private Button settingsChangeStatusButton;
 

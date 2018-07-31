@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/start_page"
-    tools:context="com.example.nemanja.mychat.StartPageActivity">
+    tools:context="com.example.nemanja.mychat.StartPageActivity"
+    android:id="@+id/ListLayout">
+
 
 
     <Button
@@ -15,11 +17,12 @@
         android:layout_above="@+id/need_account_button"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="22dp"
-        android:background="@android:color/background_light"
+        android:background="@drawable/sign_in_background"
         android:padding="10dp"
         android:text=" Already have an account?"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="20sp" />
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:transitionName="loginTransition"/>
 
     <Button
         android:id="@+id/need_account_button"
@@ -28,9 +31,20 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/already_have_account_button"
         android:layout_marginBottom="34dp"
-        android:background="@android:color/background_light"
+        android:background="@drawable/sign_in_background"
         android:padding="10dp"
         android:text="Need New Account?"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="20sp" />
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        android:transitionName="registerTransition"/>
+
+    <ImageView
+        android:id="@+id/start_page_logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        app:srcCompat="@mipmap/mychat"
+        android:transitionName="imageTransition"/>
 </RelativeLayout>

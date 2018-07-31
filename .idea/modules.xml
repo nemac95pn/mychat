@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\falcu\Desktop\aaa\mychat\app\app.iml" filepath="C:\Users\falcu\Desktop\aaa\mychat\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/mychat.iml" filepath="$PROJECT_DIR$/mychat.iml" />
-      <module fileurl="file://C:\Users\falcu\Desktop\aaa\mychat\mychat.iml" filepath="C:\Users\falcu\Desktop\aaa\mychat\mychat.iml" />
     </modules>
   </component>
 </project>

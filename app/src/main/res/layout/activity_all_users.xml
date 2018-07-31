@@ -7,8 +7,8 @@
     tools:context="com.example.nemanja.mychat.AllUsersActivity">
 
     <include
-        layout="@layout/app_bar_layout"
-        android:id="@+id/all_users_app_bar">
+        android:id="@+id/all_users_app_bar"
+        layout="@layout/app_bar_layout">
 
     </include>
 
@@ -16,7 +16,46 @@
         android:id="@+id/all_users_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/all_users_app_bar"></android.support.v7.widget.RecyclerView>
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/search_input_text"
+        android:layout_margin="10dp"></android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/all_users_app_bar"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:text="Search for People and Friends"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/search_input_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/search_people_button"
+        android:layout_alignStart="@+id/all_users_list"
+        android:layout_below="@+id/textView"
+        android:background="@drawable/search_text_background"
+        android:ems="10"
+        android:hint="Search..."
+        android:inputType="textMultiLine"
+        android:padding="20dp"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light" />
+
+    <ImageButton
+        android:id="@+id/search_people_button"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_alignTop="@+id/search_input_text"
+        android:background="@drawable/search_text_background"
+        android:padding="5dp"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/search2" />
 
 
 </RelativeLayout>

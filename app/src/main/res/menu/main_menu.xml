@@ -10,7 +10,7 @@
     </item>
 
     <item
-        android:title="All Users"
+        android:title="Find Friends"
         android:id="@+id/main_all_users_button"
         app:showAsAction="never">
 

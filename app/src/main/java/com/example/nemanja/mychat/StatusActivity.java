@@ -49,7 +49,8 @@ public class StatusActivity extends AppCompatActivity {
         StatusInput =  findViewById(R.id.status_input);
         loadingBar = new ProgressDialog(this);
 
-        String old_status = getIntent().getExtras().get("user_status").toString();
+        String old_status = getIntent().getStringExtra("user_status");
+                //.getExtras().get("user_status").toString();
         StatusInput.setText(old_status);
 
         SaveChangesButton.setOnClickListener(new View.OnClickListener() {

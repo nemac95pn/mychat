@@ -17,12 +17,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/register_email"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/search_text_background"
+        android:drawableLeft="@drawable/ic_person_outline_24dp"
+        android:drawablePadding="15dp"
         android:ems="10"
         android:hint="Name..."
         android:inputType="textMultiLine"
-        android:padding="15dp" />
+        android:padding="15dp"
+        android:textColorHint="@android:color/background_light" />
 
     <EditText
         android:id="@+id/register_email"
@@ -30,11 +35,17 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/register_password"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/search_text_background"
+        android:drawableLeft="@drawable/ic_mail_outline_24dp"
+        android:drawablePadding="15dp"
         android:ems="10"
         android:hint="Email..."
         android:inputType="textEmailAddress"
-        android:padding="15dp" />
+        android:padding="15dp"
+        android:textColorHint="@android:color/background_light" />
 
     <EditText
         android:id="@+id/register_password"
@@ -42,24 +53,40 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/create_account_button"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="33dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/search_text_background"
+        android:drawableLeft="@drawable/ic_lock_outline_24dp"
+        android:drawablePadding="15dp"
         android:ems="10"
         android:hint="Password..."
         android:inputType="textPassword"
-        android:padding="15dp" />
+        android:padding="15dp"
+        android:textColorHint="@android:color/background_light" />
 
     <Button
         android:id="@+id/create_account_button"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="57dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/sign_in_background"
         android:text="Create Account"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:transitionName="registerTransition"/>
+
+    <ImageView
+        android:id="@+id/register_page_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/register_toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        app:srcCompat="@mipmap/mychat"
+        android:transitionName="imageTransition"/>
 </RelativeLayout>

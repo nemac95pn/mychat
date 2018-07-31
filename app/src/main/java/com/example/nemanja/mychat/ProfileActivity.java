@@ -93,39 +93,33 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot)
                     {
-                        if (dataSnapshot.exists())
+                        if (dataSnapshot.hasChild(receiver_user_id))
                         {
-                            if (dataSnapshot.hasChild(receiver_user_id))
+                            String reg_type = dataSnapshot.child(receiver_user_id).child("request_type").getValue().toString();
+                            if (reg_type.equals("sent"))
                             {
-                                String reg_type = dataSnapshot.child(receiver_user_id).child("request_type").getValue().toString();
-
-                                if (reg_type.equals("sent"))
-                                {
-                                    CUURENT_STATE = "request_sent";
-                                    SendFriendRequestButton.setText("Cancel Friend Request");
-
-                                    DeclineFriendrequestButton.setVisibility(View.INVISIBLE);
-                                    DeclineFriendrequestButton.setEnabled(false);
-                                }
-                                else if (reg_type.equals("received"))
-                                {
-                                    CUURENT_STATE = "request_received";
-                                    SendFriendRequestButton.setText("Accept Friend Request");
-
-                                    DeclineFriendrequestButton.setVisibility(View.VISIBLE);
-                                    DeclineFriendrequestButton.setEnabled(true);
-
-                                    DeclineFriendrequestButton.setOnClickListener(new View.OnClickListener()
-                                    {
-                                        @Override
-                                        public void onClick(View view)
-                                        {
-                                            DeclineFriendRequest();
-                                        }
-                                    });
-                                }
+                                CUURENT_STATE = "request_sent";
+                                SendFriendRequestButton.setText("Cancel Friend Request");
+                                DeclineFriendrequestButton.setVisibility(View.INVISIBLE);
+                                DeclineFriendrequestButton.setEnabled(false);
                             }
+                            else if (reg_type.equals("received"))
+                            {
+                                CUURENT_STATE = "request_received";
+                                SendFriendRequestButton.setText("Accept Friend Request");
 
+                                DeclineFriendrequestButton.setVisibility(View.VISIBLE);
+                                DeclineFriendrequestButton.setEnabled(true);
+
+                                DeclineFriendrequestButton.setOnClickListener(new View.OnClickListener()
+                                {
+                                    @Override
+                                    public void onClick(View view)
+                                    {
+                                        DeclineFriendRequest();
+                                    }
+                                });
+                            }
                         }
                         else
                         {
@@ -288,12 +282,12 @@ public class ProfileActivity extends AppCompatActivity {
         SimpleDateFormat currentDate = new SimpleDateFormat("dd-MMMM-yyyy");
         final String saveCurrentDate = currentDate.format(calFordATE.getTime());
 
-        FriendsReference.child(sender_user_id).child(receiver_user_id).setValue(saveCurrentDate).addOnSuccessListener(new OnSuccessListener<Void>()
+        FriendsReference.child(sender_user_id).child(receiver_user_id).child("date").setValue(saveCurrentDate).addOnSuccessListener(new OnSuccessListener<Void>()
         {
             @Override
             public void onSuccess(Void aVoid)
             {
-                FriendsReference.child(receiver_user_id).child(sender_user_id).setValue(saveCurrentDate).addOnSuccessListener(new OnSuccessListener<Void>()
+                FriendsReference.child(receiver_user_id).child(sender_user_id).child("date").setValue(saveCurrentDate).addOnSuccessListener(new OnSuccessListener<Void>()
                 {
                     @Override
                     public void onSuccess(Void aVoid)

@@ -7,12 +7,17 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -24,6 +29,8 @@ public class AllUsersActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private RecyclerView allUsersList;
     private DatabaseReference allDatabaseUserreference;
+    private EditText SearchInputText;
+    private ImageButton SearchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +46,9 @@ public class AllUsersActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
+        SearchButton = (ImageButton) findViewById(R.id.search_people_button);
+        SearchInputText = (EditText) findViewById(R.id.search_input_text);
+
         allUsersList = (RecyclerView) findViewById(R.id.all_users_list);
         allUsersList.setHasFixedSize(true);
         allUsersList.setLayoutManager(new LinearLayoutManager(this));
@@ -46,19 +56,39 @@ public class AllUsersActivity extends AppCompatActivity {
         allDatabaseUserreference = FirebaseDatabase.getInstance().getReference().child("Users");
         allDatabaseUserreference.keepSynced(true);
 
+
+        SearchButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                String searchUserName = SearchInputText.getText().toString();
+                if (TextUtils.isEmpty(searchUserName))
+                {
+                    Toast.makeText(AllUsersActivity.this, "Please write User Name to search...", Toast.LENGTH_SHORT).show();
+                }
+
+                SearchForPeopleAndFriends(searchUserName);
+            }
+        });
+
     }
 
-    @Override
-    protected void onStart()
+   // @Override
+   // protected void onStart()
+    private void SearchForPeopleAndFriends(String searchUserName)
     {
-        super.onStart();
+        //super.onStart();
+        Toast.makeText(this, "Searching...", Toast.LENGTH_SHORT).show();
+        
+        Query searchPeopleAndFriends = allDatabaseUserreference.orderByChild("user_name").startAt(searchUserName).endAt(searchUserName + "\uf8ff");
 
         FirebaseRecyclerAdapter<AllUsers, AllUsersViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<AllUsers, AllUsersViewHolder>
                 (
                         AllUsers.class,
                         R.layout.all_users_display_layout,
                         AllUsersViewHolder.class,
-                        allDatabaseUserreference
+                        searchPeopleAndFriends
                 )
         {
             @Override
@@ -111,8 +141,6 @@ public class AllUsersActivity extends AppCompatActivity {
         {
             final CircleImageView thumb_image = (CircleImageView) mView.findViewById(R.id.all_users_profile_image);
 
-
-        //
             Picasso.with(ctx).load(user_thumb_image).networkPolicy(NetworkPolicy.OFFLINE).placeholder(R.drawable.default_profile).into(thumb_image, new Callback()
             {
                 @Override
